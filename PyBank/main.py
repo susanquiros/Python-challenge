@@ -73,4 +73,14 @@ print(f"Greatest Decrease in Profits: {decrease_fecha} amount: {Min_profit:,}")
 #print(Min_profit)
 #print(total_amount)
 #print(summarize)
-   
+datafile= os.path.join(r"C:\Users\squiros\Python-challenge\PyBank\Output\data.txt")  
+with open(datafile, "w") as outfile:
+  outfile.write(f"Financial Analysis\n")
+  outfile.write("------------------\n")
+  outfile.write(f"Total Months: {count_months}\n")
+  outfile.write(f'total:{sum_total_amount:,}\n')
+  outfile.write(f"average change:{avg:,}\n")
+  outfile.write(f"Greatest Increase in Profits: {increase_fecha} amount: {Max_profit:,}\n")
+  outfile.write(f"Greatest Decrease in Profits: {decrease_fecha} amount: {Min_profit:,}\n")
+
+
