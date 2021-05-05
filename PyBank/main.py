@@ -33,18 +33,21 @@ with open(csvpath) as csvfile:
           continue
         else:
           temp_profit = current_month - previous_month
-
-          # Creating the list of the months
+         # Creating the list of the months
           Months_avg.append(row[0])
-
+         #creating the list of the profit
           Profit.append(temp_profit)
-
-          #calculating for the last month
+         #calculating for the last month
           previous_month = current_month
+       
 
 #summarizing the profit
 summarize = sum(Profit)
 avg= round(summarize/(count_months -1),2)
+#getting the Max
+Max_profit = max(Profit)
+#getting the Min
+Min_profit = min (Profit)
         
         
 
@@ -59,5 +62,8 @@ print(f'total:{sum_total_amount:,}')
 print(f"average change:{avg:,}")
 print("Greatest Increase in Profits")
 print("Greatest Decrease in Profits")
+print(Max_profit)
+print(Min_profit)
 #print(total_amount)
-#print(summarize)   
+#print(summarize)
+   
