@@ -16,21 +16,48 @@ with open(csvpath) as csvfile:
     count_months = 0 
     total_amount = []
     sum_total_amount = 0
+    previous_month = 0
+    current_month = 0
+    Profit = []
+    Months_avg = []
 
     for row in csvreader:
         print (row)
         count_months = count_months + 1
         total_amount.append(int(row[1]))
         sum_total_amount= sum(total_amount) 
+        #starting with the avg
+        current_month = int(row[1])
+        if count_months == 1:
+          previous_month = current_month
+          continue
+        else:
+          temp_profit = current_month - previous_month
+
+          # Creating the list of the months
+          Months_avg.append(row[0])
+
+          Profit.append(temp_profit)
+
+          #calculating for the last month
+          previous_month = current_month
+
+#summarizing the profit
+summarize = sum(Profit)
+avg= round(summarize/(count_months -1),2)
+        
+        
+
+
     #knowing what type of data it's my column 1    
         #print(type (row [1]))
  
 print ("Financial Analysis")
 print ("------------------")   
 print(f"Total Months: {count_months}")
-print(f'total:{sum_total_amount}')
-print("average change")
+print(f'total:{sum_total_amount:,}')
+print(f"average change:{avg:,}")
 print("Greatest Increase in Profits")
 print("Greatest Decrease in Profits")
 #print(total_amount)
-    
+#print(summarize)   
