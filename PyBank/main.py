@@ -22,7 +22,7 @@ with open(csvpath) as csvfile:
     Months_avg = []
 
     for row in csvreader:
-        print (row)
+        #print (row)
         count_months = count_months + 1
         total_amount.append(int(row[1]))
         sum_total_amount= sum(total_amount) 
@@ -44,10 +44,15 @@ with open(csvpath) as csvfile:
 #summarizing the profit
 summarize = sum(Profit)
 avg= round(summarize/(count_months -1),2)
+
 #getting the Max
 Max_profit = max(Profit)
+increase_position = Profit.index(Max_profit)
+increase_fecha = Months_avg[increase_position]
 #getting the Min
 Min_profit = min (Profit)
+decrease_position = Profit.index(Min_profit)
+decrease_fecha= Months_avg[decrease_position]
         
         
 
@@ -60,10 +65,12 @@ print ("------------------")
 print(f"Total Months: {count_months}")
 print(f'total:{sum_total_amount:,}')
 print(f"average change:{avg:,}")
-print("Greatest Increase in Profits")
-print("Greatest Decrease in Profits")
-print(Max_profit)
-print(Min_profit)
+print(f"Greatest Increase in Profits: {increase_fecha} amount: {Max_profit:,}")
+print(f"Greatest Decrease in Profits: {decrease_fecha} amount: {Min_profit:,}")
+#print(increase_fecha)
+#print(decrease_fecha)
+#print(Max_profit)
+#print(Min_profit)
 #print(total_amount)
 #print(summarize)
    
