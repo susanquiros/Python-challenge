@@ -37,10 +37,29 @@ with open (csvpath) as csvfile:
         percentage_votes.append(percentage)
 max_votes = max(votes)    
 winner = unique_candidates[votes.index(max_votes)] 
-print(winner)  
+#printing the results
+print(f'Election Results')
+print("-------------------------------")
+print(f'Total Votes : {Total_votes}')
+print("-------------------------------")
+for y in range(len(unique_candidates)):
+    print(f'{unique_candidates[y]}:Percentage: {round((percentage_votes[y]),2)}% Total votes:({votes[y]})')
+print("----------------------------------------")
+print(f'The winner is: {winner}')
+print("----------------------------------------")
 
-print(percentage_votes)
-print(Total_votes) 
-print(unique_candidates)
-print(votes)  
+#writing my txt file
+datafile = os.path.join (r'C:\Users\squiros\Python-challenge\PyPoll\Output\Res.electiondata.txt')
+with open(datafile, "w") as outfile:
+    outfile.write(f'Election Results\n')
+    outfile.write("-------------------------------\n")
+    outfile.write(f'Total Votes : {Total_votes}\n')
+    outfile.write("-------------------------------\n")
+    for y in range(len(unique_candidates)):
+        outfile.write(f'{unique_candidates[y]}:Percentage: {round((percentage_votes[y]),2)}% Total votes:({votes[y]})\n')
+    outfile.write("----------------------------------------\n")
+    outfile.write(f'The winner is: {winner}\n')
+    outfile.write("----------------------------------------\n")
+
+ 
           
