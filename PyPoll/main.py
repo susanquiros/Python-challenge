@@ -16,6 +16,8 @@ with open (csvpath) as csvfile:
     count_votes = 0
     Total_votes = 0
     candidates= []
+    unique_candidates = []
+    votes = []
 
         
     for row in csvreader:
@@ -23,6 +25,14 @@ with open (csvpath) as csvfile:
         #total number of votes
         Total_votes =  Total_votes + 1
         #getting the candidates
-        candidate.append(row[2])
+        candidates.append(row[2])
+    for x in set(candidates):
+        unique_candidates.append(x)
+      #counting the total votes by candidate
+        count_votes = candidates.count(x)
+        votes.append(count_votes)
+print(votes)
 
-print(Total_votes)        
+    
+print(Total_votes) 
+print(unique_candidates)          
